@@ -2,7 +2,7 @@
 
 ## Thông tin nhóm
 - Thành viên 1: Đinh Mạnh Tú - MSSV: 1871020614
-- Thành viên 2: - MSSV:
+- Thành viên 2: Hà Minh Quân - MSSV: 1871020470
 
 ## Assets
 - **Plaintext message**: Thông điệp gốc cần được giữ bí mật
