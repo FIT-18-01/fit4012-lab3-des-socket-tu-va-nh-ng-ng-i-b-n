@@ -12,18 +12,18 @@ Bài lab bám theo luồng hệ thống trong file hướng dẫn: Sender tạo 
 - Khi demo, giảng viên có thể hỏi chéo bất kỳ thành viên nào về **sender**, **receiver**, **DES-CBC**, **padding**, **threat model** và **ethics**.
 
 ## Team members
-- **Thành viên 1**: TODO_MEMBER_1 - MSSV: TODO_MEMBER_1_ID
-- **Thành viên 2**: TODO_MEMBER_2 - MSSV: TODO_MEMBER_2_ID
+- **Thành viên 1**: Người A - MSSV: 12345678
+- **Thành viên 2**: Người B - MSSV: 87654321
 
 ## Task division
-- **Thành viên 1 phụ trách chính**: TODO_ROLE_MEMBER_1
-- **Thành viên 2 phụ trách chính**: TODO_ROLE_MEMBER_2
-- **Phần làm chung**: TODO_SHARED_WORK
+- **Thành viên 1 phụ trách chính**: Sender module, encryption logic, testing framework
+- **Thành viên 2 phụ trách chính**: Receiver module, socket communication, logging
+- **Phần làm chung**: DES utils library, threat model analysis, documentation
 
 ## Demo roles
-- **Bạn nào demo Sender / gói tin / log gửi**: TODO_DEMO_ROLE_1
-- **Bạn nào demo Receiver / giải mã / log nhận**: TODO_DEMO_ROLE_2
-- **Cả hai cùng trả lời threat model và ethics**: TODO_DEMO_ROLE_SHARED
+- **Bạn nào demo Sender / gói tin / log gửi**: Thành viên 1
+- **Bạn nào demo Receiver / giải mã / log nhận**: Thành viên 2
+- **Cả hai cùng trả lời threat model và ethics**: Cả hai
 
 ## Mục tiêu học tập
 - Hiểu luồng hoạt động của hệ thống Sender/Receiver qua TCP socket.
