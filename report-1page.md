@@ -2,7 +2,7 @@
 
 ## Thông tin nhóm
 - Thành viên 1: Đinh Mạnh Tú - MSSV: 1871020614
-- Thành viên 2:  - MSSV: 
+- Thành viên 2: Hà Minh Quân  - MSSV: 187102470
 
 ## Mục tiêu
 Bài lab này nhằm xây dựng một hệ thống gửi và nhận dữ liệu mã hoá DES qua TCP socket. Chúng tôi sẽ triển khai Sender tạo key DES 8 byte và IV 8 byte, mã hoá bằng DES-CBC với PKCS#7 padding, rồi gửi qua socket. Receiver sẽ nhận dữ liệu, giải mã và hiển thị bản rõ. Qua đó, chúng tôi hiểu sâu về luồng giao tiếp mã hoá, vai trò của key/IV/padding, và phân tích các mối đe doạ bảo mật.
