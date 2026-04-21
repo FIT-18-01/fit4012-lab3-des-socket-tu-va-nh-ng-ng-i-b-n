@@ -1,8 +1,8 @@
 # Threat Model - Lab 3
 
 ## Thông tin nhóm
-- Thành viên 1: Người A - MSSV: 12345678
-- Thành viên 2: Người B - MSSV: 87654321
+- Thành viên 1: Đinh Mạnh Tú - MSSV: 1871020614
+- Thành viên 2: - MSSV:
 
 ## Assets
 - **Plaintext message**: Thông điệp gốc cần được giữ bí mật
