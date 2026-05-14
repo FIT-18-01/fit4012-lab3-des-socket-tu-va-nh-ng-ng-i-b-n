@@ -21,7 +21,7 @@ def test_local_sender_receiver_roundtrip():
         "PYTHONUNBUFFERED": "1",
         "RECEIVER_HOST": "127.0.0.1",
         "RECEIVER_PORT": str(port),
-        "SOCKET_TIMEOUT": "5",
+        "SOCKET_TIMEOUT": "10",
     })
     sender_env = os.environ.copy()
     sender_env.update({
@@ -50,6 +50,8 @@ def test_local_sender_receiver_roundtrip():
                 collected.append(line)
                 if "Đang lắng nghe" in line:
                     started = True
+                    # Wait additional time to ensure socket is truly ready
+                    time.sleep(0.5)
                     break
         assert started, "Receiver không khởi động đúng. Output: " + "".join(collected)
 
@@ -60,16 +62,23 @@ def test_local_sender_receiver_roundtrip():
             capture_output=True,
             text=True,
             timeout=10,
-            check=True,
+            check=False,
         )
+        
+        if sender.returncode != 0:
+            print(f"Sender stdout:\n{sender.stdout}")
+            print(f"Sender stderr:\n{sender.stderr}")
+        
+        assert sender.returncode == 0, f"Sender failed with exit code {sender.returncode}\nstdout: {sender.stdout}\nstderr: {sender.stderr}"
+        
         receiver_out, _ = receiver.communicate(timeout=10)
         full_receiver_output = "".join(collected) + receiver_out
 
-        assert "[+] Đã gửi bản mã." in sender.stdout
+        assert "[+] Đã gửi bản mã." in sender.stdout, f"Expected sender output not found. Got: {sender.stdout}"
         assert "Key:" in sender.stdout
         assert "IV:" in sender.stdout
         assert "Ciphertext:" in sender.stdout
-        assert "[+] Bản tin gốc: Xin chao FIT4012 - local integration test" in full_receiver_output
+        assert "[+] Bản tin gốc: Xin chao FIT4012 - local integration test" in full_receiver_output, f"Expected receiver output not found. Got: {full_receiver_output}"
     finally:
         if receiver.poll() is None:
             receiver.kill()

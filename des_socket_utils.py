@@ -23,8 +23,10 @@ def unpad(data: bytes) -> bytes:
     return data[:-pad_len]
 
 
-def encrypt_des_cbc(plain: bytes, key: bytes | None = None, iv: bytes | None = None) -> Tuple[bytes, bytes, bytes]:
-    key = key or os.urandom(8)
+def encrypt_des_cbc(plain: bytes, key: bytes | None = None, iv: bytes | None = None) -> Tuple[bytes, bytes, bytes]:    if plain is None:
+        raise ValueError("plain text không được phép là None")
+    if not isinstance(plain, bytes):
+        raise TypeError(f"plain phải là bytes, nhận được {type(plain)}")    key = key or os.urandom(8)
     iv = iv or os.urandom(8)
     if len(key) != 8 or len(iv) != 8:
         raise ValueError("DES key và IV phải dài đúng 8 byte.")
